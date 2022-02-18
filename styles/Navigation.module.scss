@@ -22,7 +22,7 @@
             @include shadow;
         }
         &_active {
-            background-color: $secondary;
+            background-color: desaturate($color: $secondary, $amount: 30);
             color: $onSecondary;
         }
     }

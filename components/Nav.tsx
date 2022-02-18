@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "../styles/Navigation.module.scss";
+import { NavItem } from "./NavItem";
 
 export const Nav = () => {
   return (
     <div className={styles.nav}>
-      <div className={styles.nav__item}>About me</div>
-      <div className={styles.nav__item}>My Projects</div>
-      <div className={styles.nav__item}>Find me</div>
+      <NavItem name={"About me"} to={"/"} />
+      <NavItem name={"My Projects"} to={"/projects"} />
+      <NavItem name={"Find Me"} to={"/contact"} />
     </div>
   );
 };
