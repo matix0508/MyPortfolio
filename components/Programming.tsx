@@ -5,9 +5,8 @@ export const Programming = () => {
   return (
     <Card title="Programming">
       <p>
-        I started my journey with coding in High I started my journey with
-        coding in High School. I programmed simple python games, scripts for
-        optimizing desktop tasks (such as automatically filter Downloads folder)
+        I started my journey with coding in High School. I programmed simple python games, scripts for
+        optimizing desktop tasks.
       </p>
       <p>
         {" "}
