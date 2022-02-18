@@ -16,6 +16,7 @@
         border-radius: 1rem;
         @include transition;
         text-align: center;
+        text-justify: center;
 
         &:hover {
             @include shadow;

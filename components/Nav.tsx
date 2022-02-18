@@ -6,7 +6,7 @@ export const Nav = () => {
     <div className={styles.nav}>
       <div className={styles.nav__item}>About me</div>
       <div className={styles.nav__item}>My Projects</div>
-      <div className={styles.nav__item}>Contact me</div>
+      <div className={styles.nav__item}>Find me</div>
     </div>
   );
 };

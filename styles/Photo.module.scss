@@ -1,0 +1,18 @@
+.photo {
+    margin: 1rem;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    @include shadow;
+    @include transition;
+    grid-column: 2;
+    justify-self: center;
+
+    &:hover {
+        width: 350px;
+        height: 350px;
+        box-shadow: 5px 5px 10px $primary;
+    }
+}
