@@ -7,6 +7,7 @@
     @include shadow;
     background-color: $primary;
     color: $onPrimary;
+    z-index: 99;
     
 
     &__item {
@@ -22,8 +23,7 @@
             @include shadow;
         }
         &_active {
-            background-color: desaturate($color: $secondary, $amount: 30);
-            color: $onSecondary;
+            font-weight: bold;
         }
     }
 

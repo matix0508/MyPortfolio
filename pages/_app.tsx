@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
 
-      <footer className="footer"></footer>
+      <footer className="footer">Mateusz Wlekliński 2022</footer>
     </div>
   );
 }

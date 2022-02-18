@@ -1,7 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { Education } from "../components/Education";
+import { Experience } from "../components/Experience";
+import { Hobby } from "../components/Hobby";
 import { Photo } from "../components/Photo";
+import { Programming } from "../components/Programming";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -13,7 +17,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.home}>
+        <Education />
         <Photo />
+        <Programming />
+        <Experience />
+        <Hobby />
       </div>
     </>
   );

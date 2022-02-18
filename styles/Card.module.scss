@@ -1,0 +1,41 @@
+.card {
+    justify-self: center;
+    margin: 1.5rem;
+    background-color: $bg;
+    border-radius: 2rem;
+    overflow-y: hidden;
+    height: auto;
+    width: 60%;
+    color: $onPrimary;
+    @include shadow;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        @include glow;
+    }
+
+
+    &__header {
+        background-color: $primary;
+        padding: 0.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__body {
+        margin: 1rem;
+        padding: 0.5rem;
+        text-align:justify;
+        @include transition;
+        h4 {
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .card {
+        width: 80%;
+    }
+    
+}

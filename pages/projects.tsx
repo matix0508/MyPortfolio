@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
+import { TechInput } from "../components/TechInput";
+
+
+
 
 const Projects = () => {
-  return (
-    <div>projects</div>
-  )
-}
+  const [checked, setChecked] = useState<string[]>([]);
 
+  return (
+    <div>
+      <div>
+        <TechInput checked={checked} setChecked={setChecked} tech="Python" />
+      </div>
+      {checked.map(item => item)}
+    </div>
+  );
+};
 
 export default Projects;

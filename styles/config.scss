@@ -3,15 +3,24 @@ $onPrimary: #14393B;
 $secondary: #FA6730;
 $onSecondary: #21181E;
 $another: #DE762A;
-$bg: lighten(#DEA32A, 40);
+$bg: lighten(#DEA32A, 46);
 $onBg: #362A3B;
 $warning: #FACC30;
 $onWarning: #504354;
+
+$large: 1300px;
+$big: 1100px;
+$small: 800px;
 
 
 @mixin shadow {
     box-shadow: 0 1px 5px #000;
 }
+@mixin glow {
+    box-shadow: 5px 5px 10px 2px $primary;
+}
 @mixin transition {
     transition: all 0.4s ease-out;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');

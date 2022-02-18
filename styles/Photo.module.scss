@@ -1,18 +1,76 @@
-.photo {
-    margin: 1rem;
-    width: 300px;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    @include shadow;
-    @include transition;
+.container {
     grid-column: 2;
-    justify-self: center;
+    grid-row: 1 / span 2;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .photo {
+        margin: 1rem;
+
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        @include shadow;
+        @include transition;
+        justify-self: center;
+    
+        &:hover {
+            
+            @include glow;
+        }
+    }
+
+    .name {
+        text-align: center;
+        color: $onBg;
+    }
+
+}
+
+
+
+@media only screen and (min-width: $small) {
+.photo {
+    width: 400px;
+    height: 400px;
 
     &:hover {
-        width: 350px;
-        height: 350px;
-        box-shadow: 5px 5px 10px $primary;
+        width: 450px;
+        height: 450px;
     }
 }
+
+    
+}
+@media only screen and (max-width: $big) {
+    .container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    
+}
+@media only screen and (max-width: $small) and (min-width: 0) {
+
+    .photo {
+        width: 300px;
+        height: 300px;
+    
+        &:hover {
+            width: 300px;
+            height: 300px;
+    
+        }
+    }
+
+    
+}
+
+
+
+
+
+
+
