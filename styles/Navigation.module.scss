@@ -1,0 +1,30 @@
+.nav {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    @include shadow;
+    background-color: $primary;
+    color: $onPrimary;
+    
+
+    &__item {
+        margin: 0.5rem;
+        padding: 1rem;
+        cursor: pointer;
+        border-radius: 1rem;
+        @include transition;
+        text-align: center;
+
+        &:hover {
+            @include shadow;
+        }
+        &_active {
+            background-color: $secondary;
+            color: $onSecondary;
+        }
+    }
+
+
+}

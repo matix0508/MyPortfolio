@@ -1,0 +1,17 @@
+$primary: #F5A43B;
+$onPrimary: #14393B;
+$secondary: #FA6730;
+$onSecondary: #21181E;
+$another: #DE762A;
+$bg: lighten(#DEA32A, 40);
+$onBg: #362A3B;
+$warning: #FACC30;
+$onWarning: #504354;
+
+
+@mixin shadow {
+    box-shadow: 0 1px 5px #000;
+}
+@mixin transition {
+    transition: all 0.4s ease-out;
+}

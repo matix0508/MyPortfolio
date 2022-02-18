@@ -1,12 +1,12 @@
 import React from "react";
+import styles from "../styles/Navigation.module.scss";
 
 export const Nav = () => {
   return (
-    <nav>
-      <div>About me</div>
-
-      <div>My Projects</div>
-      <div>Contact me</div>
-    </nav>
+    <div className={styles.nav}>
+      <div className={styles.nav__item}>About me</div>
+      <div className={styles.nav__item}>My Projects</div>
+      <div className={styles.nav__item}>Contact me</div>
+    </div>
   );
 };
