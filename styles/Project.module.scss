@@ -1,4 +1,6 @@
 .project {
+    margin: 3rem;
+    padding: 1rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
   @include shadow;
@@ -73,3 +75,11 @@
     }
   }
 }
+
+@media only screen and (max-width: $small) {
+    .project {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 2rem
+    }
+  }
