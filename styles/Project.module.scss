@@ -1,0 +1,47 @@
+.project {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    @include shadow;
+    @include transition;
+    display: grid;
+
+    &:hover {
+        @include glow;
+    }
+
+    &__title {
+
+    }
+
+    &__img {
+        margin-right: 0;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        right: 0;
+        width: 170px;
+        height: auto;
+        justify-self: center;
+
+    }
+
+    &__text {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    &__technologies {
+        display: flex;
+        list-style: none;
+        font-size: 0.7rem;
+        justify-content: center;
+        align-items: center;
+
+        &__item {
+            margin-right: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
+}

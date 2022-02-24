@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import styles from '../styles/Projects.module.scss';
 
 interface ITechInput {
   tech: string;
@@ -21,9 +22,10 @@ export const TechInput: FC<ITechInput> = ({ checked, setChecked, tech }) => {
   };
 
   return (
-    <label>
-      <input type={"checkbox"} checked={isChecked(tech)} onChange={handleChange} />
+    <label className={styles.projects__techs__item}>
       {tech}
+      <input type={"checkbox"} checked={isChecked(tech)} onChange={handleChange} />
+      
     </label>
   );
 };
