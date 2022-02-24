@@ -17,6 +17,7 @@ export function getProjects(): IProject[] {
       description:
         "Web Application to organise personal finances and expenses. Creating and editing new categories, plotting trends etc.",
       link: "https://github.com/matix0508/Finance",
+      imageSrc: "https://aux.iconspalace.com/uploads/currency-dollar-icon-256.png"
     },
     {
       title: "Object Labeler",

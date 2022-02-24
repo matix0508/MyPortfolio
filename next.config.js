@@ -8,6 +8,7 @@ module.exports = {
       "lh3.googleusercontent.com",
       "www.androidfreeware.net",
       "icon-library.com",
+      "aux.iconspalace.com"
     ],
   },
   reactStrictMode: true,
