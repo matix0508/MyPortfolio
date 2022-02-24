@@ -38,6 +38,16 @@ export function getProjects(): IProject[] {
       link: "https://github.com/matix0508/flappy_bird",
     },
     {
+      title: "Snake",
+      time: "September 2020",
+      technologies: ["Python"],
+      description:
+        "Simple Game written in Python with users and saving scores in database",
+      imageSrc:
+        "https://www.maxpixel.net/static/photo/1x/Green-Mamba-Toxic-Scale-Dangerous-Snake-Mamba-1556165.jpg",
+      link: "https://github.com/matix0508/snake",
+    },
+    {
       title: "Conway's Game of Life",
       time: "November 2021",
       technologies: ["Rust"],
