@@ -48,6 +48,16 @@ export function getProjects(): IProject[] {
       link: "https://github.com/matix0508/snake",
     },
     {
+      title: "Gravity",
+      time: "January 2020",
+      technologies: ["Python"],
+      description:
+        "Simulation for visualisation of the three body problem. Chaotic system evolution",
+      imageSrc:
+        "https://www.maxpixel.net/static/photo/1x/Solar-System-Space-Planets-Moon-Orbit-Orbiting-152451.png",
+      link: "https://github.com/matix0508/gravity",
+    },
+    {
       title: "Conway's Game of Life",
       time: "November 2021",
       technologies: ["Rust"],

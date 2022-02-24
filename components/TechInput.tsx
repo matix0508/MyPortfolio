@@ -22,10 +22,10 @@ export const TechInput: FC<ITechInput> = ({ checked, setChecked, tech }) => {
   };
 
   return (
-    <label className={styles.projects__techs__item}>
+    <div onClick={handleChange} className={styles.projects__techs__item + " " + (isChecked(tech) ? styles.projects__techs__item_active : "")}>
       {tech}
-      <input type={"checkbox"} checked={isChecked(tech)} onChange={handleChange} />
+
       
-    </label>
+    </div>
   );
 };
