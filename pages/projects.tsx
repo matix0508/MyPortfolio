@@ -7,7 +7,6 @@ import Head from "next/head";
 
 function intersect(a: string[], b: string[]) {
   const arr = a.filter(Set.prototype.has, new Set(b));
-  console.log(arr);
   return arr.length !== 0;
 }
 

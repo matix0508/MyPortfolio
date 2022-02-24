@@ -4,4 +4,5 @@ export interface IProject {
     technologies: string[],
     description: string,
     imageSrc?: string,
+    link?: string
 }
