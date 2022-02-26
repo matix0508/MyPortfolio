@@ -5,7 +5,7 @@ export function getProjects(): IProject[] {
     {
       title: "Portfolio",
       time: "In Progress...",
-      technologies: ["React.js", "Next.js", "Node.js", "TypeScript"],
+      technologies: ["React.js", "Next.js", "TypeScript"],
       description: "My own website with past projects",
       imageSrc: "/profile.jpg",
       link: "https://github.com/matix0508/MyPortfolio",
@@ -13,16 +13,17 @@ export function getProjects(): IProject[] {
     {
       title: "Expense Tracker",
       time: "In Progress...",
-      technologies: ["React.js", "Node.js", "TypeScript", "Express.js"],
+      technologies: ["Next.js", "React.js", "TypeScript"],
       description:
         "Web Application to organise personal finances and expenses. Creating and editing new categories, plotting trends etc.",
-      link: "https://github.com/matix0508/Finance",
-      imageSrc: "https://aux.iconspalace.com/uploads/currency-dollar-icon-256.png"
+      link: "https://github.com/matix0508/financeNext",
+      imageSrc:
+        "https://aux.iconspalace.com/uploads/currency-dollar-icon-256.png",
     },
     {
       title: "Object Labeler",
       time: "Spring 2020",
-      technologies: ["Python", "Flask", "React.js", "Node.js", "TypeScript"],
+      technologies: ["Python", "Flask", "React.js", "TypeScript"],
       description:
         "Web Application to handle images labeling for Machine Learning purposes. Made as a project for AGH Solar Plane",
       imageSrc: "/projects/labeler.png",
@@ -61,8 +62,7 @@ export function getProjects(): IProject[] {
       title: "Conway's Game of Life",
       time: "November 2021",
       technologies: ["Rust"],
-      description:
-        "Game of Life interface made in Rust.",
+      description: "Game of Life interface made in Rust.",
       imageSrc:
         "https://www.androidfreeware.net/img2/com-baiels-gameoflife.jpg",
       link: "https://github.com/matix0508/game_of_life",
