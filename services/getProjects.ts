@@ -11,12 +11,13 @@ export function getProjects(): IProject[] {
       link: "https://github.com/matix0508/MyPortfolio",
     },
     {
-      title: "Portfolio",
+      title: "Pokedex",
       time: "March 2022",
       technologies: ["React.js", "TypeScript", "Redux"],
       description: "Aplication that displays a list of pokemons and info about them using REST API",
       imageSrc: "/projects/pikachu.png",
       link: "https://github.com/matix0508/pokedex",
+      live: "https://matix0508.github.io/pokedex/",
     },
     {
       title: "Expense Tracker",
