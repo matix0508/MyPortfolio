@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import styles from "../styles/Project.module.scss";
+import styles from "./Project.module.scss";
 import Image from "next/image";
-import { IProject } from "../types/IProject";
+import { IProject } from "../../types/IProject";
 
 export const Project: FC<{ item: IProject }> = ({ item }) => {
   const { title, time, technologies, description, imageSrc, link, live } = item;

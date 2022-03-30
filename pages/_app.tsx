@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import { Nav } from "../components/Nav";
+import { Nav } from "../components/Navigation/Nav";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
