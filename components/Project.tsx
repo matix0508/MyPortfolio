@@ -4,7 +4,7 @@ import Image from "next/image";
 import { IProject } from "../types/IProject";
 
 export const Project: FC<{ item: IProject }> = ({ item }) => {
-  const { title, time, technologies, description, imageSrc, link } = item;
+  const { title, time, technologies, description, imageSrc, link, live } = item;
   return (
     <div className={styles.project}>
       <div className={styles.project__content}>
@@ -20,11 +20,18 @@ export const Project: FC<{ item: IProject }> = ({ item }) => {
         )}
 
         <div className={styles.project__content__text}>{description}</div>
-        {!!link && (
-          <a href={link} className={styles.project__content__checkout}>
-            Check Out!
-          </a>
-        )}
+        <div className={styles.project__content__actions}>
+          {!!link && (
+            <a href={link} className={styles.project__content__actions__checkout}>
+              Check Out!
+            </a>
+          )}
+          {!!live && (
+            <a href={live} className={styles.project__content__actions__live}>
+              Live
+            </a>
+          )}
+        </div>
       </div>
 
       <ul className={styles.project__technologies}>
