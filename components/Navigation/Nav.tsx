@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/Navigation.module.scss";
-import { NavItem } from "./NavItem";
+import styles from "./Navigation.module.scss";
+import { NavItem } from "./NavItem"
 
 export const Nav = () => {
   return (

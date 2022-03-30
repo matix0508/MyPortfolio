@@ -9,6 +9,7 @@ export function getProjects(): IProject[] {
       description: "My own website with past projects",
       imageSrc: "/profile.jpg",
       link: "https://github.com/matix0508/MyPortfolio",
+      live: "/",
     },
     {
       title: "Pokedex",

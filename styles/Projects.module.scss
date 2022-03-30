@@ -1,74 +1,50 @@
 .projects {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  margin: 1rem;
-  padding: 1rem;
-  width: 100vw;
-
-  &__techs {
-    margin-top: 0;
-    height: fit-content;
-    margin: 1rem;
-    top: 0;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    background-color: $primary;
-    @include shadow;
-
-    &__item {
-      color: $onBg;
-      border-radius: 1rem;
-      margin: 0.5rem;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      @include transition;
-      background-color: $bg;
-      cursor: pointer;
-
-      @include shadow;
-
-      &:hover {
-        @include glow;
-      }
-
-      &_active {
-        background-color: $secondary;
-      }
-    }
-  }
-
-  &__items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    // gap: 3rem;
+    grid-template-columns: 200px 1fr;
     margin: 1rem;
-  }
+    padding: 1rem;
+    width: 100vw;
+    &__techs {
+        margin-top: 0;
+        height: fit-content;
+        margin: 1rem;
+        top: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        background-color: $primary;
+        @include shadow;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // gap: 3rem;
+        margin: 1rem;
+    }
 }
 
 @media only screen and (max-width: $small) {
-  .projects {
-    grid-template-columns: 1fr;
-    margin: 0;
-    padding: 0;
-
-    &__techs {
-      display: none;
+    .projects {
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 0;
+        &__techs {
+            display: none;
+        }
     }
-  }
 }
+
 @media only screen and (max-width: $big) {
-  .projects__items {
-    grid-template-columns: 1fr;
-  }
+    .projects__items {
+        grid-template-columns: 1fr;
+    }
 }
+
 @media only screen and (max-width: $large) and (min-width: $big) {
-  .projects__items {
-    grid-template-columns: 1fr 1fr;
-  }
+    .projects__items {
+        grid-template-columns: 1fr 1fr;
+    }
 }

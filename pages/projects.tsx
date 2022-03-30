@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TechInput } from "../components/TechInput";
+import { TechInput } from "../components/TechInput/TechInput";
 import styles from "../styles/Projects.module.scss";
-import { Project } from "../components/Project";
+import { Project } from "../components/Project/Project";
 import { getProjects } from "../services/getProjects";
 import Head from "next/head";
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import styles from "../styles/Photo.module.scss";
+import styles from "./Photo.module.scss";
 
 export const Photo = () => {
   return (

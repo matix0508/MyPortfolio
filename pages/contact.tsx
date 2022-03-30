@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Photo } from "../components/Photo";
+import { Photo } from "../components/Photo/Photo";
 import styles from "../styles/Contact.module.scss";
 import Head from "next/head";
 import { Icon } from "../components/Icon";
