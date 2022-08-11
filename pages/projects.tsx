@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TechInput } from "../components/TechInput/TechInput";
+import { TechInput } from "../components/TechInput";
 import styles from "../styles/Projects.module.scss";
 import { Project } from "../components/Project/Project";
 import { getProjects } from "../services/getProjects";
@@ -24,9 +24,9 @@ const Projects = () => {
 
   return (
     <>
-    <Head>
-      <title>Projects</title>
-    </Head>
+      <Head>
+        <title>Projects</title>
+      </Head>
       <div className={styles.projects}>
         <div className={styles.projects__techs}>
           {techs.map((tech, i) => (

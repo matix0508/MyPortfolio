@@ -8,7 +8,6 @@ const { primary, onPrimary } = colors;
 
 namespace NavElements {
   export const Container = styled(Pane)`
-    position: fixed;
     width: 100vw;
     top: 0;
     display: flex;

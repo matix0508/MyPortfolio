@@ -1,56 +1,22 @@
 import React, { FC } from "react";
-import styles from "./Project.module.scss";
-import Image from "next/image";
-import { IProject } from "../../types/IProject";
+import { ProjectType } from "../../types/ProjectType";
 import { Pane } from "evergreen-ui";
-import styled from "styled-components";
-import { shadow, transition, glow, colors } from "../../styles";
-import { darken } from "polished";
+import { Text } from "evergreen-ui";
+import { ProjectElements } from "./ProjectElements";
+import Image from "next/image";
 
-const { primary } = colors;
+const {
+  Container,
+  Content,
+  Title,
+  Time,
+  ImageContainer,
+  LinkStyled,
+  Technologies,
+  Technology,
+} = ProjectElements;
 
-namespace ProjectElements {
-  export const Container = styled(Pane)`
-    margin: 3rem;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 1rem;
-    ${shadow};
-    ${transition};
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 50px;
-    &:hover {
-      ${glow};
-    }
-  `;
-
-  export const Content = styled(Pane)`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  `;
-
-  export const Title = styled(Pane)`
-    padding: 1rem;
-    padding-bottom: 0.2rem;
-    text-align: center;
-    font-size: large;
-    font-weight: bold;
-    color: ${darken(50, primary)};
-  `;
-
-  export const Time = styled(Pane)`
-    text-align: center;
-    font-size: small;
-    font-weight: lighter;
-  `;
-}
-
-const { Container, Content, Title, Time } = ProjectElements;
-
-export const Project: FC<{ item: IProject }> = ({
+export const Project: FC<{ item: ProjectType }> = ({
   item: { title, time, technologies, description, imageSrc, link, live },
 }) => {
   return (
@@ -62,36 +28,34 @@ export const Project: FC<{ item: IProject }> = ({
         </Title>
 
         {!!imageSrc && (
-          <div className={styles.project__content__img}>
-            <Image width={400} height={400} src={imageSrc} alt={title} />{" "}
-          </div>
+          <ImageContainer>
+            <Image width={400} height={400} src={imageSrc} alt={title} />
+          </ImageContainer>
         )}
 
-        <div className={styles.project__content__text}>{description}</div>
-        <div className={styles.project__content__actions}>
+        <Text
+          width="350px"
+          padding="0.5rem"
+          margin="0.5rem"
+          text-align="center"
+        >
+          {description}
+        </Text>
+        <Pane display="flex">
           {!!link && (
-            <a
-              href={link}
-              className={styles.project__content__actions__checkout}
-            >
+            <LinkStyled color="primary" href={link}>
               Check Out!
-            </a>
+            </LinkStyled>
           )}
-          {!!live && (
-            <a href={live} className={styles.project__content__actions__live}>
-              Live
-            </a>
-          )}
-        </div>
+          {!!live && <LinkStyled color="secondary">Live</LinkStyled>}
+        </Pane>
       </Content>
 
-      <ul className={styles.project__technologies}>
+      <Technologies>
         {technologies.map((tech, i) => (
-          <li className={styles.project__technologies__item} key={i}>
-            {tech}
-          </li>
+          <Technology key={i}>{tech}</Technology>
         ))}
-      </ul>
+      </Technologies>
     </Container>
   );
 };

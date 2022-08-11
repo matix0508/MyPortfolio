@@ -1,3 +1,9 @@
+import { createGlobalStyle } from "styled-components";
+import { shadow } from "./general";
+import { colors } from "./colors";
+const { bg, onBg } = colors;
+
+export default createGlobalStyle`
 html,
 body {
   padding: 0;
@@ -9,17 +15,14 @@ body {
     overflow-x:hidden;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-}
+
 
 main {
-  padding-top: 100px;
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  width: 100vw;
   overflow-x:hidden;
 }
 
@@ -38,7 +41,7 @@ a {
 
 
 footer {
-  position: relative;
+  height: fit-content;
   width: 100vw;
   bottom: 0;
   margin-top: 1rem;
@@ -46,9 +49,9 @@ footer {
   padding-bottom: 1rem;
 
   text-align: center;
-  background-color: $bg;
-  color: $onBg;
-  @include shadow
+  background-color: ${bg};
+  color: ${onBg};
+  ${shadow};
 
 }
 
@@ -59,3 +62,4 @@ footer {
     padding-bottom: 1rem;
   }
 }
+`;

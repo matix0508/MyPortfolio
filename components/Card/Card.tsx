@@ -5,6 +5,7 @@ const { Container, Header, Body } = CardElements;
 
 type CardProps = {
   title: string;
+  children: React.ReactNode;
 };
 
 export const Card: FC<CardProps> = ({ title, children }) => {

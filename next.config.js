@@ -9,12 +9,15 @@ module.exports = {
       "www.androidfreeware.net",
       "icon-library.com",
       "aux.iconspalace.com",
-      "www.maxpixel.net"
+      "www.maxpixel.net",
     ],
   },
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
     prependData: `@import "config.scss";`,
+  },
+  compiler: {
+    styledComponents: true,
   },
 };

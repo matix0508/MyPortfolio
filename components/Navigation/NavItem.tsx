@@ -1,4 +1,3 @@
-import { Pane } from "evergreen-ui";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -10,7 +9,7 @@ interface INavItem {
 }
 
 namespace NavItemElements {
-  export const Container = styled(Pane)`
+  export const Container = styled.div<{ active: boolean }>`
     margin: 0.5rem;
     padding: 1rem;
     cursor: pointer;
@@ -31,5 +30,9 @@ const { Container } = NavItemElements;
 export const NavItem: FC<INavItem> = ({ name, to }) => {
   const router = useRouter();
 
-  return <Container active={router.pathname === to}>{name}</Container>;
+  return (
+    <Container onClick={() => router.push(to)} active={router.pathname === to}>
+      {name}
+    </Container>
+  );
 };

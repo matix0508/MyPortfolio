@@ -1,4 +1,4 @@
-export interface IProject {
+export type ProjectType = {
   title: string;
   time: string;
   technologies: string[];
@@ -6,4 +6,4 @@ export interface IProject {
   imageSrc?: string;
   link?: string;
   live?: string;
-}
+};
