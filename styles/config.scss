@@ -8,13 +8,13 @@ $onBg: #362A3B;
 $warning: #FACC30;
 $onWarning: #504354;
 
-$large: 1300px;
-$big: 1100px;
-$small: 800px;
+$large: 13px;
+$big: 11px;
+$small: 8px;
 
 
 @mixin shadow {
-    box-shadow: 0 1px 5px #000;
+    
 }
 @mixin glow {
     box-shadow: 5px 5px 10px 2px $primary;

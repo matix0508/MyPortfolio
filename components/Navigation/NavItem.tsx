@@ -1,22 +1,35 @@
+import { Pane } from "evergreen-ui";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
-import styles from "./Navigation.module.scss";
+import styled from "styled-components";
+import { shadow, transitionTime } from "../../styles";
 
 interface INavItem {
   name: string;
   to: string;
 }
 
+namespace NavItemElements {
+  export const Container = styled(Pane)`
+    margin: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: all ${transitionTime};
+    text-align: center;
+    text-justify: center;
+    font-weight: ${(props) => props.active && "bold"};
+
+    &:hover {
+      ${shadow}
+    }
+  `;
+}
+
+const { Container } = NavItemElements;
+
 export const NavItem: FC<INavItem> = ({ name, to }) => {
   const router = useRouter();
-  let navStyle = styles.nav__item;
-  if (router.pathname === to) {
-      navStyle += ` ${styles.nav__item_active}`
-  }
 
-  return (
-    <div onClick={() => router.push(to)} className={navStyle}>
-      {name}
-    </div>
-  );
+  return <Container active={router.pathname === to}>{name}</Container>;
 };

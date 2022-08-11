@@ -1,22 +1,17 @@
-import React, { FC } from 'react'
-import styles from './Card.module.scss';
+import React, { FC } from "react";
+import { CardElements } from "./CardElements";
 
-interface ICard {
-    title: string
-}
+const { Container, Header, Body } = CardElements;
 
-export const Card:FC<ICard> = ({title, children}) => {
+type CardProps = {
+  title: string;
+};
+
+export const Card: FC<CardProps> = ({ title, children }) => {
   return (
-    <div className={styles.card}>
-        <div className={styles.card__header}>
-            {title}
-        </div>
-        <div className={styles.card__body}>
-            {children}
-        </div>
-        <div className={styles.card__footer}>
-            
-        </div>
-    </div>
-  )
-}
+    <Container>
+      <Header>{title}</Header>
+      <Body>{children}</Body>
+    </Container>
+  );
+};

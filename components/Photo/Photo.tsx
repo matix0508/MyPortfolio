@@ -1,17 +1,17 @@
 import Image from "next/image";
-import React from "react";
-import styles from "./Photo.module.scss";
+import React, { FC } from "react";
+import { PhotoElements } from "./PhotoElements";
 
-export const Photo = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.photo}>
-        <Image width={500} height={500} src={"/profile.jpg"} alt="profile" />
-      </div>
-      <div className={styles.name}>
-          <h2>Mateusz Wlekliński</h2>
-          <h4>Junior Software Developer</h4>
-        </div>
-    </div>
-  );
-};
+const { Container, PhotoContainer, Name } = PhotoElements;
+
+export const Photo: FC = () => (
+  <Container>
+    <PhotoContainer>
+      <Image width={500} height={500} src={"/profile.jpg"} alt="profile" />
+    </PhotoContainer>
+    <Name>
+      <h2>Mateusz Wlekliński</h2>
+      <h4>Junior Software Developer</h4>
+    </Name>
+  </Container>
+);
