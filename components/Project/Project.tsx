@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import { ProjectType } from "../../types/ProjectType";
-import { Pane } from "evergreen-ui";
-import { Text } from "evergreen-ui";
+import { ProjectType } from "../../types";
+import { Pane, Text } from "evergreen-ui";
 import { ProjectElements } from "./ProjectElements";
 import Image from "next/image";
 

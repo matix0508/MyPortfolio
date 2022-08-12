@@ -1,4 +1,4 @@
-import { ProjectType } from "../types/ProjectType";
+import { ProjectType } from "../types";
 
 export function getProjects(): ProjectType[] {
   return [

@@ -12,11 +12,12 @@ import Head from "next/head";
 import { Icon } from "../components/Icon";
 import { Link, Pane, Paragraph } from "evergreen-ui";
 import styled from "styled-components";
-import { colors, glow, shadow, transition } from "../styles";
+import { colors, glow, shadow, transition, size } from "../styles";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { lighten } from "polished";
 
 const { primary, secondary, onSecondary } = colors;
+const { big } = size;
 
 const ContactStyled = styled(Pane)`
   display: grid;
@@ -24,7 +25,7 @@ const ContactStyled = styled(Pane)`
 
   align-items: center;
   justify-content: center;
-  @media only screen and (max-width: $big) {
+  @media only screen and (max-width: ${big}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -60,6 +61,9 @@ const EmailContainer = styled.div`
   ${transition};
   &:hover {
     ${glow}
+  }
+  @media only screen and (max-width: ${big}) {
+    grid-row: 3;
   }
 `;
 
