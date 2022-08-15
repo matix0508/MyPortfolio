@@ -10,8 +10,8 @@ interface ITechInput {
 }
 
 const TechInputStyled = styled.div<{ active: boolean }>`
-  background-color: ${(props) => (props.active ? bg : secondary)};
-  color: ${(props) => (props.active ? onBg : onSecondary)};
+  background-color: ${(props) => (props.active ? secondary : bg)};
+  color: ${(props) => (props.active ? onSecondary : onBg)};
   border-radius: 1rem;
   margin: 0.5rem;
   padding: 1rem;

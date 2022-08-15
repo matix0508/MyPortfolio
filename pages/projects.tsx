@@ -5,21 +5,14 @@ import { Project } from "../components/Project/Project";
 import { getProjects } from "../services/getProjects";
 import Head from "next/head";
 
-function intersect(a: string[], b: string[]) {
-  const arr = a.filter(Set.prototype.has, new Set(b));
-  return arr.length !== 0;
-}
-
 const Projects = () => {
   const items = getProjects();
-  let techs: string[] = [];
-  items.forEach((item) => {
-    item.technologies.forEach((tech) => {
-      if (!techs.includes(tech)) {
-        techs = [...techs, tech];
-      }
-    });
-  });
+
+  const techs = items
+    .map((item) => item.technologies)
+    .reduce((prev, next) => prev.concat(next))
+    .filter((value, index, self) => self.indexOf(value) === index); // get unique values
+
   const [checked, setChecked] = useState<string[]>(techs);
 
   return (
@@ -41,7 +34,11 @@ const Projects = () => {
 
         <div className={styles.projects__items}>
           {items
-            .filter((item) => intersect(item.technologies, checked))
+            .filter((item) =>
+              item.technologies
+                .map((tech) => checked.includes(tech))
+                .reduce((prev, next) => prev || next)
+            )
             .map((p, i) => (
               <Project key={i} item={p} />
             ))}

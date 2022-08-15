@@ -5,6 +5,7 @@ import styles from "../styles/Contact.module.scss";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { transition, colors } from "../styles";
 import styled from "styled-components";
+import { FontAwesomeIconStyled } from "./FontAwesomeIconStyled";
 
 const { primary, secondary } = colors;
 
@@ -18,28 +19,12 @@ const IconStyled = styled.a`
   margin: 1rem;
   border-radius: 1rem;
   ${transition};
-
-  &:hover {
-    background-color: ${primary};
-    color: ${secondary};
-    font-size: 2.5rem;
-    font-size: 2rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    cursor: pointer;
-    @include transition;
-
-    &:hover {
-      color: $primary;
-      background-color: $secondary;
-    }
-  }
 `;
 
 export const Icon: FC<IconProps> = ({ href, icon }) => {
   return (
     <IconStyled href={href}>
-      <FontAwesomeIcon icon={icon} />
+      <FontAwesomeIconStyled icon={icon} />
     </IconStyled>
   );
 };
