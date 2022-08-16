@@ -1,17 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Pane } from "evergreen-ui";
 import { lighten } from "polished";
 import styled from "styled-components";
-import {
-  shadow,
-  transition,
-  glow,
-  colors,
-  size,
-  transitionTime,
-} from "../../styles";
+import { shadow, transition, glow, colors, size } from "../../styles";
 
-const { bg, primary, secondary, onSecondary } = colors;
+const { primary, secondary, onSecondary } = colors;
 const { big } = size;
 
 export namespace ContactStyles {
