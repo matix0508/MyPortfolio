@@ -1,8 +1,11 @@
 import { Card } from "evergreen-ui";
+import { lighten, darken } from "polished";
 import styled from "styled-components";
-import { marginSize, paddingSize } from "../../styles";
+import { colors, marginSize, paddingSize } from "../../styles";
 
 export const CardStyled = styled(Card)`
+  background-color: ${lighten(0.5, colors.primary)};
+  color: ${darken(0.5, colors.onPrimary)};
   justify-content: center;
   margin: ${marginSize.regular};
   padding: ${paddingSize.regular};
