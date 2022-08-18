@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from "../../common";
+import { CardStyled } from "../../common";
 
 export const Hobby = () => {
   return (
-    <Card title="Hobby">
+    <CardStyled title="Hobby">
       <p>
         I have been programming for years, but that is not my only passion. I
         also play guitar and piano.
@@ -13,6 +13,6 @@ export const Hobby = () => {
         Recently I discovered my latest passion which is 3D modeling using
         Blender.
       </p>
-    </Card>
+    </CardStyled>
   );
 };

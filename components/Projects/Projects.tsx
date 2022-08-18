@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { getProjects } from "../../services/getProjects";
-import { colors, shadow, screenSize } from "../../styles";
+import { colors, shadow, screenSize, borderRadius } from "../../styles";
 import { Project } from "./Project";
 import { TechInput } from "./TechInput";
 
@@ -64,7 +64,7 @@ const TechsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 1rem;
+  border-radius: ${borderRadius};
   background-color: ${colors.primary};
   ${shadow};
 `;

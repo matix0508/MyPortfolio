@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { screenSize } from "../../styles";
-import { Photo } from "../Photo";
+import { Photo } from "../common";
 import { Education } from "./Sections/Education";
 import { Experience } from "./Sections/Experience";
 import { Hobby } from "./Sections/Hobby";

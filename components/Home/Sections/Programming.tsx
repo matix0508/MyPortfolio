@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from "../../common";
+import { CardStyled } from "../../common";
 
 export const Programming = () => {
   return (
-    <Card title="Programming">
+    <CardStyled title="Programming">
       <p>
         I started my journey with coding in High School. I programmed simple
         python games, scripts for optimizing desktop tasks.
@@ -17,6 +17,6 @@ export const Programming = () => {
         Finally, I settled with the Web Development, and I&apos;m doing my best
         to master it in the future
       </p>
-    </Card>
+    </CardStyled>
   );
 };

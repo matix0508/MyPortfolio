@@ -1,13 +1,8 @@
-import { lighten } from "polished";
-
 export const colors = {
-  primary: "#F5A43B",
-  onPrimary: "#14393B",
-  secondary: "#FA6730",
-  onSecondary: "#21181E",
-  another: "#DE762A",
-  bg: lighten(46, "#DEA32A"),
-  onBg: "#362A3B",
-  warning: "#FACC30",
-  onWarning: "#504354",
+  primary: "#344966",
+  onPrimary: "#BFCC94",
+  secondary: "#B4CDED",
+  onSecondary: "#0D1821",
+  bg: "#F0F4EF",
+  onBg: "#0D1821",
 };

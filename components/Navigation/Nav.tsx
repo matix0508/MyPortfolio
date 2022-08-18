@@ -2,23 +2,18 @@ import { Pane } from "evergreen-ui";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { NavItem } from "./NavItem";
-import { colors } from "../../styles";
+import { colors, shadow } from "../../styles";
 
 const { primary, onPrimary } = colors;
 
-namespace NavElements {
-  export const Container = styled(Pane)`
-    width: 100vw;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    background-color: ${primary};
-    color: ${onPrimary};
-    z-index: 99;
-  `;
-}
-
-const { Container } = NavElements;
+export const Container = styled(Pane)`
+  width: 100vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+  ${shadow};
+`;
 
 export const Nav: FC = () => {
   return (
