@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, glow, shadow, transition } from "../../styles";
+import { colors, glow, shadow, transition } from "../../../styles";
 
 const { bg, onBg, primary, onPrimary } = colors;
 
@@ -13,7 +13,7 @@ export namespace CardElements {
     height: fit-content;
     width: 60%;
     color: ${onBg};
-    ${shadow}
+    ${shadow};
     transition: all 0.2s ease-in-out;
 
     &:hover {

@@ -1,11 +1,9 @@
 import { Pane } from "evergreen-ui";
 import { darken } from "polished";
 import styled from "styled-components";
-import { shadow, transition, glow, colors, size } from "../../styles";
-import Image from "next/image";
+import { shadow, transition, glow, colors, screenSize } from "../../../styles";
 
 const { primary, onPrimary, secondary, onSecondary } = colors;
-const { small } = size;
 
 export namespace ProjectElements {
   export const Container = styled(Pane)`
@@ -21,7 +19,7 @@ export namespace ProjectElements {
     &:hover {
       ${glow};
     }
-    @media only screen and (max-width: ${small}) {
+    @media only screen and (max-width: ${screenSize.small}) {
       margin: 0;
       padding: 0;
       margin-bottom: 2rem;

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { colors, glow, shadow, transition } from "../styles";
+import { colors, glow, shadow, transition } from "../../styles";
 const { bg, onBg, secondary, onSecondary } = colors;
 
 interface ITechInput {

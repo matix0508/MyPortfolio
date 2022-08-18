@@ -1,13 +1,8 @@
 import React, { FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import styles from "../styles/Contact.module.scss";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { transition, colors } from "../styles";
+import { transition } from "../../styles";
 import styled from "styled-components";
 import { FontAwesomeIconStyled } from "./FontAwesomeIconStyled";
-
-const { primary, secondary } = colors;
 
 type IconProps = {
   href: string;

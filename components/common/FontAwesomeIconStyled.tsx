@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import { transition, colors } from "../styles";
+import { transition, colors } from "../../styles";
 
 const { primary, secondary } = colors;
 
