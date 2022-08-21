@@ -1,7 +1,14 @@
 import { Pane } from "evergreen-ui";
 import { darken } from "polished";
 import styled from "styled-components";
-import { shadow, transition, glow, colors, screenSize } from "../../../styles";
+import {
+  shadow,
+  transition,
+  glow,
+  colors,
+  screenSize,
+  borderRadius,
+} from "../../../styles";
 
 const { primary, onPrimary, secondary, onSecondary } = colors;
 
@@ -11,7 +18,7 @@ export namespace ProjectElements {
     margin: 3rem;
     padding: 1rem;
     margin-bottom: 2rem;
-    border-radius: 1rem;
+    border-radius: ${borderRadius};
     ${shadow};
     ${transition};
     display: grid;
@@ -53,7 +60,7 @@ export namespace ProjectElements {
     margin: 1rem;
     position: relative;
     overflow: hidden;
-    border-radius: 1rem;
+    border-radius: ${borderRadius};
     right: 0;
     width: 120px;
     height: auto;

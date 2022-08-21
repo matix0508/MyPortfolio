@@ -1,31 +1,28 @@
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import styled from "styled-components";
-import { shadow, transitionTime } from "../../styles";
+import { borderRadius, colors, shadow, transitionTime } from "../../styles";
 
 interface INavItem {
   name: string;
   to: string;
 }
 
-namespace NavItemElements {
-  export const Container = styled.div<{ active: boolean }>`
-    margin: 0.5rem;
-    padding: 1rem;
-    cursor: pointer;
-    border-radius: 1rem;
-    transition: all ${transitionTime};
-    text-align: center;
-    text-justify: center;
-    font-weight: ${(props) => props.active && "bold"};
+export const Container = styled.div<{ active: boolean }>`
+  margin: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: ${borderRadius};
+  transition: all ${transitionTime};
+  text-align: center;
+  text-justify: center;
+  background-color: ${(props) => props.active && colors.secondary};
+  color: ${(props) => props.active && colors.onSecondary};
 
-    &:hover {
-      ${shadow}
-    }
-  `;
-}
-
-const { Container } = NavItemElements;
+  &:hover {
+    font-weight: "bold";
+  }
+`;
 
 export const NavItem: FC<INavItem> = ({ name, to }) => {
   const router = useRouter();

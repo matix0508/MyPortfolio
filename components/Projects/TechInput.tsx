@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { colors, glow, shadow, transition } from "../../styles";
+import { borderRadius, colors, glow, shadow, transition } from "../../styles";
 const { bg, onBg, secondary, onSecondary } = colors;
 
 interface ITechInput {
@@ -12,7 +12,7 @@ interface ITechInput {
 const TechInputStyled = styled.div<{ active: boolean }>`
   background-color: ${(props) => (props.active ? secondary : bg)};
   color: ${(props) => (props.active ? onSecondary : onBg)};
-  border-radius: 1rem;
+  border-radius: ${borderRadius};
   margin: 0.5rem;
   padding: 1rem;
   display: flex;

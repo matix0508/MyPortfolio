@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { transition } from "../../styles";
+import { borderRadius, transition } from "../../styles";
 import styled from "styled-components";
 import { FontAwesomeIconStyled } from "./FontAwesomeIconStyled";
 
@@ -12,7 +12,7 @@ type IconProps = {
 const IconStyled = styled.a`
   padding: 0.5rem;
   margin: 1rem;
-  border-radius: 1rem;
+  border-radius: ${borderRadius};
   ${transition};
 `;
 
