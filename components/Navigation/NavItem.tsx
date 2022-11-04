@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { borderRadius, colors, shadow, transitionTime } from "../../styles";
 
-interface INavItem {
+export interface INavItem {
   name: string;
   to: string;
 }
