@@ -4,7 +4,7 @@ export function getApiDataSingleElement<T extends ZodRawShape>(
   data: z.ZodObject<T>
 ) {
   return z.object({
-    id: z.string(),
+    id: z.number(),
     attributes: z
       .object({
         locale: z.string(),
