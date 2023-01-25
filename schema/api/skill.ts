@@ -7,4 +7,4 @@ const skillSchema = z.object({
 });
 
 export const singleSkillSchema = getApiDataSingle(skillSchema);
-export const manySkillsSchema = getApiDataMany(skillSchema);
+export const manySkillSchema = getApiDataMany(skillSchema);
