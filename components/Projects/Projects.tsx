@@ -6,11 +6,11 @@ import { colors, shadow, screenSize, borderRadius } from "../../styles";
 import { Project } from "./Project";
 import { SkillSelector } from "./TechInput";
 
-type ProjectsProps = {
+type ProjectsListingProps = {
   projects: ProjectType[];
 };
 
-export const Projects: FC<ProjectsProps> = ({ projects }) => {
+export const ProjectsListing: FC<ProjectsListingProps> = ({ projects }) => {
   const skills: SkillType[] = projects
     .reduce<SkillType[]>((acc, curr) => acc.concat(curr.skills), [])
     .filter(

@@ -7,6 +7,7 @@ import {
   manyProjectSchema,
   ProjectApiMany,
 } from "../schema/api/project";
+import { fetchData } from "../services/fetchData";
 
 const Projects: FC<{ projects: ProjectApiMany }> = ({ projects }) => {
   return (
@@ -19,16 +20,14 @@ const Projects: FC<{ projects: ProjectApiMany }> = ({ projects }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch(
-    "http://localhost:1337/api/projects?populate=image&populate=skills"
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const projects = await fetchData(
+    "/api/projects",
+    { populate: ["image", "skills"], locale },
+    manyProjectSchema
   );
-  const projects = manyProjectSchema.parse(await res.json());
-  return {
-    props: {
-      projects,
-    },
-  };
+
+  return { props: { projects } };
 };
 
 export default Projects;

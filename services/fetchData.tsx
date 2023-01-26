@@ -1,8 +1,20 @@
 import { Schema } from "zod";
+import QueryString from "qs";
 
-export async function fetchData<T>(url: string, schema: Schema<T>) {
+type Query = {
+  [key: string]: unknown;
+};
+
+export async function fetchData<T>(
+  url: string,
+  query: Query,
+  schema: Schema<T>
+) {
+  const queryString = QueryString.stringify(query, {
+    encodeValuesOnly: true, // prettify URL
+  });
   const res = await fetch(
-    "http://localhost:1337/api/projects?populate=image&populate=skills"
+    `${process.env.STRAPI_ENDPOINT}${url}?${queryString}`
   );
   return schema.parse(await res.json());
 }
