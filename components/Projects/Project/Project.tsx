@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ProjectType } from "../../../types";
+import type { ProjectType } from "../../../schema/api/project";
 import { Pane, Text } from "evergreen-ui";
 import { ProjectElements } from "./ProjectElements";
 import Image from "next/image";
@@ -15,20 +15,27 @@ const {
   Technology,
 } = ProjectElements;
 
-export const Project: FC<{ item: ProjectType }> = ({
-  item: { title, time, technologies, description, imageSrc, link, live },
+export const Project: FC<ProjectType> = ({
+  name,
+  description,
+  image,
+  start,
+  end,
+  link,
+  demo,
+  skills,
 }) => {
   return (
     <Container>
       <Content>
         <Title>
-          {title}
-          <Time>{time}</Time>
+          {name}
+          {/* <Time>{time}</Time> */}
         </Title>
 
-        {!!imageSrc && (
+        {image && (
           <ImageContainer>
-            <Image width={400} height={400} src={imageSrc} alt={title} />
+            <Image width={400} height={400} src={image} alt={name} />
           </ImageContainer>
         )}
 
@@ -41,18 +48,18 @@ export const Project: FC<{ item: ProjectType }> = ({
           {description}
         </Text>
         <Pane display="flex">
-          {!!link && (
+          {link && (
             <LinkStyled color="primary" href={link}>
               Check Out!
             </LinkStyled>
           )}
-          {!!live && <LinkStyled color="secondary">Live</LinkStyled>}
+          {demo && <LinkStyled color="secondary">Demo</LinkStyled>}
         </Pane>
       </Content>
 
       <Technologies>
-        {technologies.map((tech, i) => (
-          <Technology key={i}>{tech}</Technology>
+        {skills.map((skill) => (
+          <Technology key={skill.id}>{skill.name}</Technology>
         ))}
       </Technologies>
     </Container>

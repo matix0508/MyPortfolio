@@ -1,40 +1,47 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { getProjects } from "../../services/getProjects";
+import { ProjectType } from "../../schema/api/project";
+import { SkillType } from "../../schema/api/skill";
 import { colors, shadow, screenSize, borderRadius } from "../../styles";
 import { Project } from "./Project";
-import { TechInput } from "./TechInput";
+import { SkillSelector } from "./TechInput";
 
-export const Projects = () => {
-  const items = getProjects();
-  const techs = items
-    .map((item) => item.technologies)
-    .reduce((prev, next) => prev.concat(next))
-    .filter((value, index, self) => self.indexOf(value) === index); // get unique values
+type ProjectsProps = {
+  projects: ProjectType[];
+};
 
-  const [checked, setChecked] = useState<string[]>(techs);
+export const Projects: FC<ProjectsProps> = ({ projects }) => {
+  const skills: SkillType[] = projects
+    .reduce<SkillType[]>((acc, curr) => acc.concat(curr.skills), [])
+    .filter(
+      (item, index, self) => self.findIndex((t) => t.id === item.id) === index
+    );
+
+  const [checkedId, setCheckedId] = useState<number[]>([
+    ...skills.map(({ id }) => id),
+  ]);
   return (
     <ProjectsStyled>
       <TechsContainer>
-        {techs.map((tech, index) => (
-          <TechInput
+        {skills.map((skill, index) => (
+          <SkillSelector
             key={index}
-            checked={checked}
-            setChecked={setChecked}
-            tech={tech}
+            checkedId={checkedId}
+            setCheckedId={setCheckedId}
+            skill={skill}
           />
         ))}
       </TechsContainer>
 
       <ProjectItemContainer>
-        {items
-          .filter((item) =>
-            item.technologies
-              .map((tech) => checked.includes(tech))
+        {projects
+          .filter(({ skills }) =>
+            skills
+              .map((skill) => checkedId.includes(skill.id))
               .reduce((prev, next) => prev || next)
           )
           .map((project, index) => (
-            <Project key={index} item={project} />
+            <Project key={index} {...project} />
           ))}
       </ProjectItemContainer>
     </ProjectsStyled>

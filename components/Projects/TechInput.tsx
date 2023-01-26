@@ -1,13 +1,14 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { SkillType } from "../../schema/api/skill";
 import { borderRadius, colors, glow, shadow, transition } from "../../styles";
 const { bg, onBg, secondary, onSecondary } = colors;
 
-interface ITechInput {
-  tech: string;
-  checked: string[];
-  setChecked: (item: string[]) => void;
-}
+type SkillSelectorProps = {
+  skill: SkillType;
+  checkedId: number[];
+  setCheckedId: (item: number[]) => void;
+};
 
 const TechInputStyled = styled.div<{ active: boolean }>`
   background-color: ${(props) => (props.active ? secondary : bg)};
@@ -26,18 +27,22 @@ const TechInputStyled = styled.div<{ active: boolean }>`
   }
 `;
 
-export const TechInput: FC<ITechInput> = ({ checked, setChecked, tech }) => {
-  const isChecked = (item: string) => checked.includes(item);
+export const SkillSelector: FC<SkillSelectorProps> = ({
+  checkedId,
+  setCheckedId,
+  skill,
+}) => {
+  const isChecked = (id: number) => checkedId.includes(id);
   const handleClick = () =>
-    setChecked(
-      isChecked(tech)
-        ? checked.filter((item) => item !== tech)
-        : [...checked, tech]
+    setCheckedId(
+      isChecked(skill.id)
+        ? checkedId.filter((item) => item !== skill.id)
+        : [...checkedId, skill.id]
     );
 
   return (
-    <TechInputStyled active={isChecked(tech)} onClick={handleClick}>
-      {tech}
+    <TechInputStyled active={isChecked(skill.id)} onClick={handleClick}>
+      {skill.name}
     </TechInputStyled>
   );
 };
