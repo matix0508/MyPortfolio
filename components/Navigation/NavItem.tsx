@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+"use client";
+import { usePathname, useRouter } from "next/navigation";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { borderRadius, colors, shadow, transitionTime } from "../../styles";
@@ -25,10 +26,11 @@ export const Container = styled.div<{ active: boolean }>`
 `;
 
 export const NavItem: FC<INavItem> = ({ name, to }) => {
-  const router = useRouter();
+  const pathname = usePathname();
+  const { push } = useRouter();
 
   return (
-    <Container onClick={() => router.push(to)} active={router.pathname === to}>
+    <Container onClick={() => push(to)} active={pathname === to}>
       {name}
     </Container>
   );
