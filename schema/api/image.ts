@@ -6,7 +6,7 @@ const formats = ["large", "medium", "small", "thumbnail"] as const;
 
 const formatSchema = z.object({
   ext: z.string(),
-  url: z.string().url(),
+  url: z.string(),
   hash: z.string(),
   mime: z.string(),
   name: z.string(),
@@ -21,7 +21,7 @@ export const imageSchema = z
     alternativeText: z.string(),
     caption: z.string().nullable(),
     formats: z.record(createUnionSchema(formats), formatSchema),
-    previewUrl: z.string().url().nullable(),
+    previewUrl: z.string().nullable(),
     provider: z.string(),
     provider_metadata: z.unknown(),
   })

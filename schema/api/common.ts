@@ -1,4 +1,4 @@
-import z, { ZodLiteral, ZodRawShape } from "zod";
+import z, { ZodRawShape } from "zod";
 
 export function getApiDataSingleElement<T extends ZodRawShape>(
   data: z.ZodObject<T>
@@ -7,7 +7,7 @@ export function getApiDataSingleElement<T extends ZodRawShape>(
     id: z.number(),
     attributes: z
       .object({
-        locale: z.string(),
+        locale: z.string().optional(),
       })
       .merge(data),
   });

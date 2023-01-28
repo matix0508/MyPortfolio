@@ -8,9 +8,9 @@ const socialMedia = ["github", "linkedin", "facebook", "instagram"] as const;
 export const socialMediaSchema = z.object({
   id: z.number(),
   name: createUnionSchema(socialMedia),
-  link: z.string().url(),
+  link: z.string(),
 });
-
+export type SocialMediaType = z.infer<typeof socialMediaSchema>;
 const profileSchema = z.object({
   name: z.string(),
   title: z.string(),
@@ -20,6 +20,7 @@ const profileSchema = z.object({
 });
 
 export const profileApiSchema = getApiDataSingle(profileSchema);
+export type ProfileApiType = z.infer<typeof profileApiSchema>;
 export type ProfileType = Omit<z.infer<typeof profileSchema>, "photo"> & {
   photo: ImageType;
 };

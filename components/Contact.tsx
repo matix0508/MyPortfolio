@@ -1,14 +1,6 @@
 "use client";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link, Pane, Paragraph } from "evergreen-ui";
-import React from "react";
-import { FontAwesomeIconStyled } from "./common/FontAwesomeIconStyled";
+import React, { FC } from "react";
 import { Icon, Photo } from "./common";
 import styled from "styled-components";
 import {
@@ -19,38 +11,23 @@ import {
   shadow,
   transition,
 } from "../styles";
+import { getProfileType, ProfileApiType } from "../schema/api/profile";
 
-interface IconComponentProp {
-  href: string;
-  icon: IconProp;
-}
-const icons: IconComponentProp[] = [
-  {
-    icon: faGithub as IconProp,
-    href: "https://github.com/wleklinskimateusz",
-  },
-  {
-    icon: faInstagram as IconProp,
-    href: "https://www.instagram.com/matix0508",
-  },
-  {
-    icon: faLinkedin as IconProp,
-    href: "https://www.linkedin.com/in/mateusz-wlekli%C5%84ski/",
-  },
-];
-
-export const Contact = () => {
+export const Contact: FC<{ profile: ProfileApiType }> = ({
+  profile: rawProfile,
+}) => {
+  const profile = getProfileType(rawProfile.data);
   return (
     <ContactStyled>
       <Photo />
       <IconsContainer>
-        {icons.map((props, key) => (
+        {profile.socialMedia.map((props, key) => (
           <Icon key={key} {...props} />
         ))}
       </IconsContainer>
       <EmailContainer>
         <Link href="mailto:wleklinskimateusz05@gmail.com">
-          <FontAwesomeIconStyled icon={faEnvelope as IconProp} />
+          {/* <FontAwesomeIconStyled icon={faEnvelope as IconProp} /> */}
         </Link>
 
         <Paragraph fontWeight="bold">Write to me!</Paragraph>

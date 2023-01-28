@@ -1,12 +1,21 @@
 import React, { FC } from "react";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { borderRadius, transition } from "../../styles";
 import styled from "styled-components";
-import { FontAwesomeIconStyled } from "./FontAwesomeIconStyled";
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
+} from "@ant-design/icons";
+import { SocialMediaType } from "../../schema/api/profile";
 
-type IconProps = {
-  href: string;
-  icon: IconProp;
+export const Icon: FC<SocialMediaType> = ({ link, name }) => {
+  const Icon = icons[name];
+  return (
+    <IconStyled href={link}>
+      <Icon />
+    </IconStyled>
+  );
 };
 
 const IconStyled = styled.a`
@@ -16,10 +25,9 @@ const IconStyled = styled.a`
   ${transition};
 `;
 
-export const Icon: FC<IconProps> = ({ href, icon }) => {
-  return (
-    <IconStyled href={href}>
-      <FontAwesomeIconStyled icon={icon} />
-    </IconStyled>
-  );
+const icons: Record<SocialMediaType["name"], FC> = {
+  github: GithubOutlined,
+  linkedin: LinkedinOutlined,
+  facebook: FacebookOutlined,
+  instagram: InstagramOutlined,
 };
