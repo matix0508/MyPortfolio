@@ -36,7 +36,7 @@ export const Project: FC<ProjectType> = ({
 
         {image && (
           <ImageContainer>
-            <Image width={400} height={400} src={image} alt={name} />
+            <Image width={400} height={400} src={image.url} alt={name} />
           </ImageContainer>
         )}
 

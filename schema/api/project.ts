@@ -19,17 +19,16 @@ export const singleProjectSchema = getApiDataSingle(projectSchema);
 export const manyProjectSchema = getApiDataMany(projectSchema);
 export type ProjectApiMany = z.infer<typeof manyProjectSchema>;
 export type ProjectApiSingle = z.infer<typeof singleProjectSchema>;
-export type ProjectType = {
-  id: number;
-  name: string;
-  description: string | null;
-  start: Date | null;
-  end: Date | null;
-  image: ImageType | null;
-  skills: SkillType[];
-  link: string | null;
-  demo: string | null;
-};
+export type ProjectType = Pick<ProjectApiSingle["data"], "id"> &
+  Pick<
+    z.infer<typeof projectSchema>,
+    "name" | "description" | "link" | "demo"
+  > & {
+    start: Date | null;
+    end: Date | null;
+    image: ImageType | null;
+    skills: SkillType[];
+  };
 
 export function getProjectType({
   id,

@@ -31,13 +31,10 @@ export const imageApiSchema = getApiDataSingle(imageSchema);
 export const imageApiNullableSchema = getApiDataSingleNullable(imageSchema);
 
 type ImageApi = z.infer<typeof imageApiSchema>;
-export type ImageType = {
-  alternativeText: string;
-  url: string;
-  width: number;
-  height: number;
-  size: number;
-};
+export type ImageType = Pick<
+  ImageApi["data"]["attributes"],
+  "alternativeText" | "url" | "width" | "height" | "size"
+>;
 
 export function getImageType({
   attributes: { alternativeText, url, width, height, size },
