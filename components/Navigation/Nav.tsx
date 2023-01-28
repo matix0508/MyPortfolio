@@ -1,3 +1,4 @@
+"use client";
 import { Pane } from "evergreen-ui";
 import React, { FC } from "react";
 import styled from "styled-components";

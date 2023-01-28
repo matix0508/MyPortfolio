@@ -3,6 +3,7 @@ import type { ProjectType } from "../../../schema/api/project";
 import { Pane, Text } from "evergreen-ui";
 import { ProjectElements } from "./ProjectElements";
 import Image from "next/image";
+import Link from "next/link";
 
 const {
   Container,
@@ -59,7 +60,9 @@ export const Project: FC<ProjectType> = ({
 
       <Technologies>
         {skills.map((skill) => (
-          <Technology key={skill.id}>{skill.name}</Technology>
+          <Technology key={skill.id}>
+            <Link href={`/skills/${skill.id}`}>{skill.name}</Link>
+          </Technology>
         ))}
       </Technologies>
     </Container>

@@ -1,0 +1,52 @@
+import { z } from "zod";
+import { createUnionSchema } from "../createUnionSchema";
+import { getApiDataSingle, getApiDataSingleNullable } from "./common";
+
+const formats = ["large", "medium", "small", "thumbnail"] as const;
+
+const formatSchema = z.object({
+  ext: z.string(),
+  url: z.string().url(),
+  hash: z.string(),
+  mime: z.string(),
+  name: z.string(),
+  path: z.string().nullable(),
+  size: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+export const imageSchema = z
+  .object({
+    alternativeText: z.string(),
+    caption: z.string().nullable(),
+    formats: z.record(createUnionSchema(formats), formatSchema),
+    previewUrl: z.string().url().nullable(),
+    provider: z.string(),
+    provider_metadata: z.unknown(),
+  })
+  .merge(formatSchema.omit({ path: true }));
+
+export const imageApiSchema = getApiDataSingle(imageSchema);
+export const imageApiNullableSchema = getApiDataSingleNullable(imageSchema);
+
+type ImageApi = z.infer<typeof imageApiSchema>;
+export type ImageType = {
+  alternativeText: string;
+  url: string;
+  width: number;
+  height: number;
+  size: number;
+};
+
+export function getImageType({
+  attributes: { alternativeText, url, width, height, size },
+}: ImageApi["data"]): ImageType {
+  return {
+    alternativeText,
+    url,
+    width,
+    height,
+    size,
+  };
+}

@@ -1,3 +1,4 @@
+"use client";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
   faGithub,

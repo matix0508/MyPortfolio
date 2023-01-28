@@ -1,16 +1,22 @@
+"use client";
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { ProjectType } from "../../schema/api/project";
+import {
+  getProjectType,
+  ProjectApiMany,
+  ProjectType,
+} from "../../schema/api/project";
 import { SkillType } from "../../schema/api/skill";
 import { colors, shadow, screenSize, borderRadius } from "../../styles";
 import { Project } from "./Project";
 import { SkillSelector } from "./TechInput";
 
 type ProjectsListingProps = {
-  projects: ProjectType[];
+  projectsApi: ProjectApiMany;
 };
 
-export const ProjectsListing: FC<ProjectsListingProps> = ({ projects }) => {
+export const ProjectsListing: FC<ProjectsListingProps> = ({ projectsApi }) => {
+  const projects: ProjectType[] = projectsApi.data.map(getProjectType);
   const skills: SkillType[] = projects
     .reduce<SkillType[]>((acc, curr) => acc.concat(curr.skills), [])
     .filter(

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { getApiDataMany, getApiDataSingle } from "./common";
+import { getImageType, imageApiNullableSchema, ImageType } from "./image";
 import { getSkillType, manySkillSchema, SkillType } from "./skill";
 
 const projectSchema = z.object({
@@ -7,9 +8,8 @@ const projectSchema = z.object({
   description: z.string().nullable(),
   start: z.string().nullable(),
   end: z.string().nullable(),
-  image: z.object({
-    data: z.null(), // TODO - add image data
-  }),
+  image: imageApiNullableSchema,
+
   skills: manySkillSchema,
   link: z.string().nullable(),
   demo: z.string().nullable(),
@@ -25,7 +25,7 @@ export type ProjectType = {
   description: string | null;
   start: Date | null;
   end: Date | null;
-  image: string | null;
+  image: ImageType | null;
   skills: SkillType[];
   link: string | null;
   demo: string | null;
@@ -41,7 +41,7 @@ export function getProjectType({
     description: description,
     start: getDate(start),
     end: getDate(end),
-    image: "", // TODO - add image data
+    image: image.data ? getImageType(image.data) : null, // TODO - add image data
     skills: skills.data.map(getSkillType),
     link: link,
     demo: demo,
