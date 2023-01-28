@@ -12,11 +12,7 @@ export const manySkillSchema = getApiDataMany(skillSchema);
 export type SkillApiMany = z.infer<typeof manySkillSchema>;
 export type SkillApiSingle = z.infer<typeof singleSkillSchema>;
 
-export type SkillType = {
-  id: number;
-  name: string;
-  description: string | null;
-};
+export type SkillType = z.infer<typeof skillSchema> & { id: number };
 
 export function getSkillType({
   id,
