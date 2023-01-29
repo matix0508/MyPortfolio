@@ -1,20 +1,18 @@
 import React, { FC } from "react";
 import type { ProjectType } from "../../../schema/api/project";
 import { Pane, Text } from "evergreen-ui";
-import { ProjectElements } from "./ProjectElements";
 import Image from "next/image";
-import Link from "next/link";
+import { GithubOutlined, PlaySquareOutlined } from "@ant-design/icons";
+import { colors } from "../../../styles";
 
-const {
+import {
   Container,
   Content,
-  Title,
-  Time,
   ImageContainer,
   LinkStyled,
   Technologies,
   Technology,
-} = ProjectElements;
+} from "./ProjectElements";
 
 export const Project: FC<ProjectType> = ({
   name,
@@ -29,10 +27,10 @@ export const Project: FC<ProjectType> = ({
   return (
     <Container>
       <Content>
-        <Title>
+        <h3 style={{ color: colors.onBg }}>
           {name}
           {/* <Time>{time}</Time> */}
-        </Title>
+        </h3>
 
         {image && (
           <ImageContainer>
@@ -50,18 +48,22 @@ export const Project: FC<ProjectType> = ({
         </Text>
         <Pane display="flex">
           {link && (
-            <LinkStyled color="primary" href={link}>
-              Check Out!
+            <LinkStyled href={link}>
+              <GithubOutlined />
             </LinkStyled>
           )}
-          {demo && <LinkStyled color="secondary">Demo</LinkStyled>}
+          {demo && (
+            <LinkStyled href={demo}>
+              <PlaySquareOutlined />
+            </LinkStyled>
+          )}
         </Pane>
       </Content>
 
       <Technologies>
         {skills.map((skill) => (
           <Technology key={skill.id}>
-            <Link href={`/skills/${skill.id}`}>{skill.name}</Link>
+            <LinkStyled href={`/skills/${skill.id}`}>{skill.name}</LinkStyled>
           </Technology>
         ))}
       </Technologies>

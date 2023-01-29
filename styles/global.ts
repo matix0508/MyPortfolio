@@ -14,6 +14,7 @@ body {
     background-color: $bg;
     width: 100vw;
     overflow-x:hidden;
+    
 }
 
 
