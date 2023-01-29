@@ -20,14 +20,12 @@ export function createUnionSchema<
   T extends readonly [Primitive, Primitive, ...Primitive[]]
 >(values: T): z.ZodUnion<MappedZodLiterals<T>>;
 export function createUnionSchema<T extends readonly Primitive[]>(values: T) {
-  if (values.length > 1) {
+  if (values.length > 1)
     return createManyUnion(
       values as typeof values & [Primitive, Primitive, ...Primitive[]]
     );
-  } else if (values.length === 1) {
-    return z.literal(values[0]);
-  } else if (values.length === 0) {
-    return z.never();
-  }
+  else if (values.length === 1) return z.literal(values[0]);
+  else if (values.length === 0) return z.never();
+
   throw new Error("Array must have a length");
 }
