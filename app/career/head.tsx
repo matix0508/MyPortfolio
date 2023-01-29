@@ -1,6 +1,6 @@
 import React from "react";
 
-const Layout = () => {
+const Head = () => {
   return (
     <>
       <title>Projects</title>
@@ -8,4 +8,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Head;
