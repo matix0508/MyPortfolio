@@ -1,10 +1,5 @@
-import { useRouter } from "next/router";
-import React from "react";
+import { redirect } from "next/navigation";
 
-const Admin = () => {
-  const { push } = useRouter();
-  push(`${process.env.STRAPI_ENDPOINT}/admin`);
-  return null;
-};
+const Admin = () => redirect(`${process.env.STRAPI_ENDPOINT}/admin`);
 
 export default Admin;
