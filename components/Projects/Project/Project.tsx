@@ -20,7 +20,7 @@ export const Project: FC<ProjectType> = ({
   image,
   start,
   end,
-  link,
+  repo,
   demo,
   skills,
 }) => {
@@ -47,8 +47,8 @@ export const Project: FC<ProjectType> = ({
           {description}
         </Text>
         <Pane display="flex">
-          {link && (
-            <LinkStyled href={link}>
+          {repo && (
+            <LinkStyled href={repo}>
               <GithubOutlined />
             </LinkStyled>
           )}

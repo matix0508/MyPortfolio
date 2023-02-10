@@ -10,8 +10,8 @@ const projectSchema = z.object({
   end: z.string().nullable(),
   image: imageApiNullableSchema,
 
-  skills: manySkillSchema,
-  link: z.string().nullable(),
+  skills: manySkillSchema.nullable(),
+  repo: z.string().nullable(),
   demo: z.string().nullable(),
 });
 
@@ -22,7 +22,7 @@ export type ProjectApiSingle = z.infer<typeof singleProjectSchema>;
 export type ProjectType = Pick<ProjectApiSingle["data"], "id"> &
   Pick<
     z.infer<typeof projectSchema>,
-    "name" | "description" | "link" | "demo"
+    "name" | "description" | "repo" | "demo"
   > & {
     start: Date | null;
     end: Date | null;
@@ -32,7 +32,7 @@ export type ProjectType = Pick<ProjectApiSingle["data"], "id"> &
 
 export function getProjectType({
   id,
-  attributes: { name, description, start, end, image, skills, link, demo },
+  attributes: { name, description, start, end, image, skills, repo, demo },
 }: z.infer<typeof singleProjectSchema>["data"]): ProjectType {
   return {
     id,
@@ -41,9 +41,9 @@ export function getProjectType({
     start: getDate(start),
     end: getDate(end),
     image: image.data ? getImageType(image.data) : null, // TODO - add image data
-    skills: skills.data.map(getSkillType),
-    link: link,
-    demo: demo,
+    skills: skills?.data.map(getSkillType) || [],
+    repo,
+    demo,
   };
 }
 

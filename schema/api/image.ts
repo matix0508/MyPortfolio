@@ -18,7 +18,7 @@ const formatSchema = z.object({
 
 export const imageSchema = z
   .object({
-    alternativeText: z.string(),
+    alternativeText: z.string().nullable(),
     caption: z.string().nullable(),
     formats: z.record(createUnionSchema(formats), formatSchema),
     previewUrl: z.string().nullable(),
